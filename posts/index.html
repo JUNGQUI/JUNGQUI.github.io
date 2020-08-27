@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Posts - QUEUEZ DEV LOG - TITLE</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://jungqui.github.io/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://jungqui.github.io/style.css" rel="stylesheet">
+    <link href="https://jungqui.github.io/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://jungqui.github.io/apple-touch-icon.png">
+    <link rel="icon" href="https://jungqui.github.io/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/rss+xml" href="https://jungqui.github.io/posts/index.xml" title="QUEUEZ DEV LOG - TITLE" />
+    
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://jungqui.github.io/">QUEUEZ DEV LOG - TITLE</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+<header class="page-header"><h1>Posts</h1></header>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Jvm</h2>
+  </header>
+  <section class="entry-content">
+   <p>JVM, GC 그리고 thread JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.
+쉽게 보자면 Linux 이던 window 이던 상관 없이 java 를 사용하는 것도 program - OS 간 가교 역할을 해주는 JVM 의 공로라 할 수 있다.
+왜 알아야 하나? 후술 할 GC 를 이해하기 위함과 동시에 컴퓨팅 자원에 대해 직접적으로 관여하지 않는 (비교적) java 라 하더라도 대용량 데이터 및 대규모 I/O 작업이 일어날 경우, 강력한 performance 가 보장되지 않기 때문이다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 27, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://jungqui.github.io/posts/jvm/"></a>
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://jungqui.github.io/">QUEUEZ DEV LOG - TITLE</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://jungqui.github.io/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

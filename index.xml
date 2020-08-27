@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QUEUEZ DEV LOG - TITLE</title>
+    <link>https://jungqui.github.io/</link>
+    <description>Recent content on QUEUEZ DEV LOG - TITLE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Aug 2020 10:59:24 +0900</lastBuildDate>
+    
+	<atom:link href="https://jungqui.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jvm</title>
+      <link>https://jungqui.github.io/posts/jvm/</link>
+      <pubDate>Thu, 27 Aug 2020 10:59:24 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/jvm/</guid>
+      <description>JVM, GC 그리고 thread JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.
+쉽게 보자면 Linux 이던 window 이던 상관 없이 java 를 사용하는 것도 program - OS 간 가교 역할을 해주는 JVM 의 공로라 할 수 있다.
+왜 알아야 하나? 후술 할 GC 를 이해하기 위함과 동시에 컴퓨팅 자원에 대해 직접적으로 관여하지 않는 (비교적) java 라 하더라도 대용량 데이터 및 대규모 I/O 작업이 일어날 경우, 강력한 performance 가 보장되지 않기 때문이다.</description>
+    </item>
+    
+    <item>
+      <title>Landing</title>
+      <link>https://jungqui.github.io/landing/</link>
+      <pubDate>Thu, 27 Aug 2020 10:58:00 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/landing/</guid>
+      <description>QueueZ 의 기록 보관소 입니다.
+hugo 를 이용해 github.io 로 만들어졌으며 theme 는 paper theme 를 이용했습니다.
+paper theme URL : https://themes.gohugo.io/hugo-paper/</description>
+    </item>
+    
+  </channel>
+</rss>
