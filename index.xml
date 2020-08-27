@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>QUEUEZ DEV LOG - TITLE</title>
+    <title>QUEUEZ DEV LOG</title>
     <link>https://jungqui.github.io/</link>
-    <description>Recent content on QUEUEZ DEV LOG - TITLE</description>
+    <description>Recent content on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Aug 2020 10:59:24 +0900</lastBuildDate>
@@ -30,7 +30,8 @@
       <guid>https://jungqui.github.io/landing/</guid>
       <description>QueueZ 의 기록 보관소 입니다.
 hugo 를 이용해 github.io 로 만들어졌으며 theme 는 paper theme 를 이용했습니다.
-paper theme URL : https://themes.gohugo.io/hugo-paper/</description>
+paper theme URL : https://themes.gohugo.io/hugo-paper/
+게시글 : https://jungqui.github.io/posts/</description>
     </item>
     
   </channel>
