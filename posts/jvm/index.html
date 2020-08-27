@@ -7,7 +7,7 @@
     
     <title>Jvm - QUEUEZ DEV LOG</title>
     
-    <meta name="description" content="JVM, GC 그리고 thread JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.
+    <meta name="description" content="JVM 과 GC JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.
 쉽게 보자면 Linux 이던 window 이던 상관 없이 java 를 사용하는 것도 program - OS 간 가교 역할을 해주는 JVM 의 공로라 할 수 있다.
 왜 알아야 하나? 후술 할 GC 를 이해하기 위함과 동시에 컴퓨팅 자원에 대해 직접적으로 관여하지 않는 (비교적) java 라 하더라도 대용량 데이터 및 대규모 I/O 작업이 일어날 경우, 강력한 performance 가 보장되지 않기 때문이다.">
     <meta name="author" content="">
@@ -86,7 +86,7 @@
     <h1 class="post-title">Jvm</h1>
     <div class="post-meta">August 27, 2020</div>
   </header>
-  <div class="post-content"><h1 id="jvm-gc-그리고-thread">JVM, GC 그리고 thread</h1>
+  <div class="post-content"><h1 id="jvm-과-gc">JVM 과 GC</h1>
 <h2 id="jvm">JVM?</h2>
 <p>Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진
 존재이다.</p>
@@ -162,8 +162,11 @@
 </ul>
 <p>변수들의 참조 값에 대해 관리한다. heap 은 또 eden, survivor 0/1, old, permanent 등으로 구성되어 있다.</p>
 <p>이 부분에 대해서는 GC 가 연관되어 있기 때문에 GC 관련된 글 작성 시 자세히 설명 하려 한다. 우선 간단하게 설명하자면,</p>
-<p>permanent : 전체 code 에 대한 method 나 class 의 meta data 가 저장되는 공간.
-그렇기 때문에 Reflection 이 자주 일어나는 spring 의 경우 이 부분에 대한 관리가 중요하다.</p>
+<p><del>permanent : 전체 code 에 대한 method 나 class 의 meta data 가 저장되는 공간.</del>
+<del>그렇기 때문에 Reflection 이 자주 일어나는 spring 의 경우 이 부분에 대한 관리가 중요하다.</del></p>
+<p>Java 8 이후 부터 permanent 의 경우 Native memory 의 meta space 로 대체되었다.</p>
+<p>대체된 이유로는 heap 이 아니라 사실상 전체 code 에 대한 meta data 가 주로 이루어져 있었기 때문에 Heap 이 아닌 OS 에 위임하는게 맞다고 생각해서 라고 한다.</p>
+<p>또한 이와 같은 방식으로 memory 관리를 할 경우 heap 에 강제되는 memory 가 없어지기 때문에 heap 은 이전보다 더 많은 자원을 할당받아 사용 할 수 있게 되었다.</p>
 <p>eden : 변수 생성 시 최초 저장되는 공간</p>
 <p>survivor 0/1 : eden 에서 오래된 변수가 저장 되는 공간</p>
 <p>old : survivor 에서 오래된 변수가 저장 되는 공간</p>
