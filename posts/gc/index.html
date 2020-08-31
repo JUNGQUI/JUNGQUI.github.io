@@ -103,6 +103,8 @@ factory pattern 이 왜 나왔는지 아는 우리들은 이 또한 좋은 방�
 <h2 id="heap-구성">Heap 구성</h2>
 <p>먼저 GC 를 이야기 하기 전에 GC 가 청소하는 공간에 대해 알 필요가 있다. 이전 <a href="https://jungqui.github.io/posts/jvm">post</a> 에서 이야기 했듯이 Heap 이 GC 가 청소해야 할 집이다.</p>
 <p>Heap은 크게 <code>Eden</code>, <code>survivor0/1</code>, <code>old</code> 로 구성되어 있으며 이 영역에 대해 GC 가 관여 한다.</p>
+<p>또한 Heap 에 저장되는 변수들은 대게 동적으로 할당되는 것들인데, List 의 경우가 바로 대표적인 그 예다.</p>
+<p>int[] 와 같은 경우는 초기 선언 시 사이즈를 지정해주기 때문에 stack 영역에 저장된다.</p>
 <ul>
 <li>Eden</li>
 </ul>
