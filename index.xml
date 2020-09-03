@@ -5,11 +5,20 @@
     <link>https://jungqui.github.io/</link>
     <description>Recent content on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2020 20:47:06 +0900</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Sep 2020 09:54:12 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lock</title>
+      <link>https://jungqui.github.io/posts/lock/</link>
+      <pubDate>Thu, 03 Sep 2020 09:54:12 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/lock/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Static</title>
@@ -17,9 +26,7 @@
       <pubDate>Tue, 01 Sep 2020 20:47:06 +0900</pubDate>
       
       <guid>https://jungqui.github.io/posts/static/</guid>
-      <description>static static? 보통 &amp;lsquo;정적&amp;rsquo; 이라는 단어가 붙어 있는 case 가 있는데 정적 variable, 정적 method 을 지칭한다.
-정적 이라는 말에서 알 수 있듯이 선언 직후 변하지 않는 값을 표현할 때 static 을 사용한다. 비슷한 의미로 final 이 있는데, final 은 immutable 속성을 가지고 있는 것이고 static 은 고정적인 의 속성을 가지고 있다고 보면 된다.
-참고로 enum class 를 확인해보면 java 가 아니라 class 선언된 enum 이 static final 로 선언되어 있는 것을 알 수 있다.</description>
+      <description>static? 보통 &amp;lsquo;정적&amp;rsquo; 이라는 단어가 붙어 있는 case 가 있는데 정적 variable, 정적 method 을 지칭한다.</description>
     </item>
     
     <item>
@@ -28,11 +35,7 @@
       <pubDate>Mon, 31 Aug 2020 16:32:43 +0900</pubDate>
       
       <guid>https://jungqui.github.io/posts/processnthread/</guid>
-      <description>Process 와 thread Program? Process? Thread? Program 다음은 나무 위키에서의 program 에 대한 정의 중 일부 발췌문이다.
- 컴퓨터에서 실행될 때 특정 작업(specific task)을 수행하는 일련의 명령어들의 모음(집합체)이다.
- 이와 같이 &amp;lsquo;어떠한 목적&amp;rsquo; 을 수행하기 위한 명령어들로 이루어진 모음이다.
-Process Program 이 어떠한 목적을 이루기 위해 여러 task 를 잘게 쪼개놓은 것이다. 사전적 의미로는 이렇지만 실제로 보면 사실상 process 가 program 이지 않을까 한다.
-개인적인 생각엔 최근에는 Program 은 사람이 인식하여 실행할 수 있는 단위 (ex : 카카오톡) 으로 인식되고 실제 CPU 등 pc resource 에 대해 소모하는 단위가 process 이지 않나 하는 생각이 든다.</description>
+      <description>Program? Process? Thread? Program 다음은 나무 위키에서의 program 에 대한 정의 중 일부 발췌문이다.</description>
     </item>
     
     <item>
@@ -41,11 +44,7 @@ Process Program 이 어떠한 목적을 이루기 위해 여러 task 를 잘게 
       <pubDate>Thu, 27 Aug 2020 13:30:14 +0900</pubDate>
       
       <guid>https://jungqui.github.io/posts/gc/</guid>
-      <description>JVM과 GC GC? Garbage collector 의 약자로 말 그대로 쓰레기 수집기 이다.
-java 의 가장 강력한 기능 중 하나라고 평가 받는 기능이자 개발자 편의를 십분 도와주는 그래도 얘도 잘 모르면 방해하는 건 똑같은 기능이다.
-여기서 얘기하는 Garbage 란 memory 내에서 더 이상 쓰이지 않는 참조 값을 의미한다.
-왜 알아야 하나? 자동으로 도와주는 기능인데 왜 내가 알아야 하는지 의문이 들 수 있다. 내가 그랬다 그러나 정말 몰라도 되는 것일까?
-우리가 개발하면서 unlimited power resource 란 존재할 수 없다.</description>
+      <description>GC? Garbage collector 의 약자로 말 그대로 쓰레기 수집기 이다.</description>
     </item>
     
     <item>
@@ -54,21 +53,7 @@ java 의 가장 강력한 기능 중 하나라고 평가 받는 기능이자 개
       <pubDate>Thu, 27 Aug 2020 10:59:24 +0900</pubDate>
       
       <guid>https://jungqui.github.io/posts/jvm/</guid>
-      <description>JVM 과 GC JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.
-쉽게 보자면 Linux 이던 window 이던 상관 없이 java 를 사용하는 것도 program - OS 간 가교 역할을 해주는 JVM 의 공로라 할 수 있다.
-왜 알아야 하나? 후술 할 GC 를 이해하기 위함과 동시에 컴퓨팅 자원에 대해 직접적으로 관여하지 않는 (비교적) java 라 하더라도 대용량 데이터 및 대규모 I/O 작업이 일어날 경우, 강력한 performance 가 보장되지 않기 때문이다.</description>
-    </item>
-    
-    <item>
-      <title>Landing</title>
-      <link>https://jungqui.github.io/landing/</link>
-      <pubDate>Thu, 27 Aug 2020 10:58:00 +0900</pubDate>
-      
-      <guid>https://jungqui.github.io/landing/</guid>
-      <description>QueueZ 의 기록 보관소 입니다.
-hugo 를 이용해 github.io 로 만들어졌으며 theme 는 paper theme 를 이용했습니다.
-paper theme URL : https://themes.gohugo.io/hugo-paper/
-게시글 : https://jungqui.github.io/posts/</description>
+      <description>JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.</description>
     </item>
     
   </channel>

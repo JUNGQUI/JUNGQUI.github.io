@@ -1,112 +1,187 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | QUEUEZ DEV LOG </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="지식을 큐처럼 습득하며 살아가고 싶은 개발자입니다.">
     
-    <title>QUEUEZ DEV LOG - QUEUEZ DEV LOG</title>
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <link href="https://jungqui.github.io/an-old-hope.min.css" rel="stylesheet">
-    <link href="https://jungqui.github.io/style.css" rel="stylesheet">
-    <link href="https://jungqui.github.io/custom.css" rel="stylesheet">
-    
-    <link rel="apple-touch-icon" href="https://jungqui.github.io/apple-touch-icon.png">
-    <link rel="icon" href="https://jungqui.github.io/favicon.ico">
-    <meta name="generator" content="Hugo 0.74.3" />
-    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/">
     <link rel="alternate" type="application/rss+xml" href="https://jungqui.github.io/index.xml" title="QUEUEZ DEV LOG" />
     
     
-    <script>
-      function setTheme() {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.body.classList.add('dark');
-          return;
-        }
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
 
-        const time = new Date();
-        const prev = localStorage.getItem('date');
-        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+<meta name="twitter:title" content="QUEUEZ DEV LOG"/>
+<meta name="twitter:description" content="지식을 큐처럼 습득하며 살아가고 싶은 개발자입니다."/>
 
-        const now = time.getTime();
-        let sunrise;
-        let sunset;
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/resources/images/de" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>지식을 큐처럼 습득하며 살아가고 싶은 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
 
-        function setBodyClass() {
-          if (now > sunrise && now < sunset) return;
-          document.body.classList.add('dark');
-        }
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a class="current" href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li><a  href="/about/"  title="">About</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
 
-        if (date !== prev) {
-          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
-            .then((res) => res.json())
-            .then((data) => {
-              sunrise = data.sunrise.split(':').map(Number);
-              sunset = data.sunset.split(':').map(Number);
-            })
-            .catch(() => {
-              sunrise = [7, 0];
-              sunset = [19, 0];
-            })
-            .finally(() => {
-              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
-              sunset = time.setHours(sunset[0], sunset[1], 0);
-              setBodyClass();
-              localStorage.setItem('sunrise', sunrise);
-              localStorage.setItem('sunset', sunset);
-            });
-          localStorage.setItem('date', date);
-        } else {
-          sunrise = Number(localStorage.getItem('sunrise'));
-          sunset = Number(localStorage.getItem('sunset'));
-          setBodyClass();
-        }
-      }
-    </script>
-  </head>
-  <body class="list home">
-    <script>
-      setTheme();
-    </script>
-    <header class="header">
-      <nav class="nav">
-        <h1 class="logo"><a href="https://jungqui.github.io/">QUEUEZ DEV LOG</a></h1>
-      </nav>
-    </header>
-    <main class="main">
+            <div class="autopagerize_page_element">
+                <div class="content">
+  
+  
+  <div class="post animated fadeInDown">
+    <div class="post-title">
+      <h3><a href="/posts/lock/">Lock</a>
+      </h3>
+    </div>
+    <div class="post-content"><div class="p_part"><p></p></div>
+  
+  <div class="p_part"><p></p></div></div>
+    <div class="post-footer">
+      <div class="meta">
+        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Thu, Sep 3, 2020</span>
+          <a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="post animated fadeInDown">
+    <div class="post-title">
+      <h3><a href="/posts/static/">Static</a>
+      </h3>
+    </div>
+    <div class="post-content"><div class="p_part"><p>static? 보통 &lsquo;정적&rsquo; 이라는 단어가 붙어 있는 case 가 있는데 정적 variable, 정적 method 을 지칭한다.</p></div>
+  
+  <div class="p_part"><p></p></div></div>
+    <div class="post-footer">
+      <div class="meta">
+        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Tue, Sep 1, 2020</span>
+          <a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="post animated fadeInDown">
+    <div class="post-title">
+      <h3><a href="/posts/processnthread/">ProcessNthread</a>
+      </h3>
+    </div>
+    <div class="post-content"><div class="p_part"><p>Program? Process? Thread? Program 다음은 나무 위키에서의 program 에 대한 정의 중 일부 발췌문이다.</p></div>
+  
+  <div class="p_part"><p></p></div></div>
+    <div class="post-footer">
+      <div class="meta">
+        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Mon, Aug 31, 2020</span>
+          <a class="tag" href="/tags/programming/">programming</a>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="post animated fadeInDown">
+    <div class="post-title">
+      <h3><a href="/posts/gc/">Gc</a>
+      </h3>
+    </div>
+    <div class="post-content"><div class="p_part"><p>GC? Garbage collector 의 약자로 말 그대로 쓰레기 수집기 이다.</p></div>
+  
+  <div class="p_part"><p></p></div></div>
+    <div class="post-footer">
+      <div class="meta">
+        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Thu, Aug 27, 2020</span>
+          <a class="tag" href="/tags/programming/">programming</a>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="post animated fadeInDown">
+    <div class="post-title">
+      <h3><a href="/posts/jvm/">Jvm</a>
+      </h3>
+    </div>
+    <div class="post-content"><div class="p_part"><p>JVM? Java Virtual Machine 의 약자로 말 그대로 java 를 돌리기 위해 가상으로 Computer 의 자원을 가진 존재이다.</p></div>
+  
+  <div class="p_part"><p></p></div></div>
+    <div class="post-footer">
+      <div class="meta">
+        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Thu, Aug 27, 2020</span>
+          <a class="tag" href="/tags/programming/">programming</a>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="pagination">
+  
 
-<header class="page-header"><h1>QUEUEZ DEV LOG</h1></header>
 
-<article class="first-entry">
-  <header class="entry-header">
-    <h2>Landing</h2>
-  </header>
-  <section class="entry-content">
-   <p>QueueZ 의 기록 보관소 입니다.
-hugo 를 이용해 github.io 로 만들어졌으며 theme 는 paper theme 를 이용했습니다.
-paper theme URL : https://themes.gohugo.io/hugo-paper/
-게시글 : https://jungqui.github.io/posts/...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>August 27, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://jungqui.github.io/landing/"></a>
-</article></main>
-<footer class="footer">
-  <span>&copy; 2020 <a href="https://jungqui.github.io/">QUEUEZ DEV LOG</a></span>
-  <span>&middot;</span>
-  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
-  <span>&middot;</span>
-  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
-</footer>
-<script src="https://jungqui.github.io/highlight.min.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
+</div>
+
+                </div>
+            </div>
+        </div>
 </body>
-</html>
 
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
