@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Lambda </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="지식을 큐처럼 습득하며 살아가고 싶은 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/lambda/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Lambda"/>
+<meta name="twitter:description" content="Lambda? 대표적으로는 그리스어의 람다가 있다.
+그리고 수학적으로는 람다식이라는 것이 있는데 이 부분이 개발에서 쓰이는 lambda expression 과 유사하다고 볼 수 있다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>지식을 큐처럼 습득하며 살아가고 싶은 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Lambda
+        </h3>
+        
+        </div>
+
+    <h2 id="lambda">Lambda?</h2>
+<p>대표적으로는 그리스어의 람다가 있다.</p>
+<p>그리고 수학적으로는 람다식이라는 것이 있는데 이 부분이 개발에서 쓰이는 lambda expression 과 유사하다고 볼 수 있다.</p>
+<p>수학적 람다 식은 <a href="https://ko.wikipedia.org/wiki/%EB%9E%8C%EB%8B%A4_%EB%8C%80%EC%88%98">여기</a> 를 보면 알 수 있는데, 도입 - 핵심 개념 부분을 보면 <code>추상화</code> 라는 개념이 등장하는데 이 부분이 바로 개발쪽에서 lambda expression 을 쓸 때 interface 와 일맥상통 하는 부분이다.</p>
+<p>개발쪽에선 <code>익명 함수</code> 라는 말로 주로 쓰이는데 쉽게 말해 함수 선언 없이(익명) 바로 implement 하여 interface 의 장점을 극대화 시키는 함수형 프로그래밍 기법이다.</p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>java 8 의 가장 큰 변경점 이 lambda expression 구현이다. 또한 MSA 가 붐이 일면서 interface 를 사용하는 장점인 추상화, 다형성 등을 이용하기 좋은 장점이 있다.</p>
+<p>java 8에서 공식적으로 지원하게 되고 전반적인 개발 구조에서 많이들 쓰이며 무엇보다, 문제를 해결하는 또 하나의 총알 하나 정도는 가져가야 추후에 선택지가 다양해지고 더 좋은 개발자가 되지 않겠는가?</p>
+<h2 id="구성">구성</h2>
+<p>일단 진행하기에 앞서 일급 컬렉션에 대해 알아야 한다.</p>
+<blockquote>
+<ul>
+<li>일급 컬렉션?</li>
+</ul>
+<p>하나의 컬렉션을 랩핑 해서 구현하지만 그 외의 매개 변수는 존재하지 않는 object 를 의미한다.</p>
+<p>무슨 의미인지 보자면 특정 entity 용 object (DAO, VO, DTO 등) 를 생성 할 경우 해당 class 내에 name 이란 변수가 선언된다면
+선언된 name 외에는 다른 변수는 선언되지 않은 class 를 말한다.</p>
+<pre><code>public class FirstClassCollections {
+  private List&lt;String&gt; names;
+}
+</code></pre><p>이렇게 구현할 경우 장점은 business logic 에 특화되기 때문에 해당 class 와 관련된 모든 logic 이 해당 class 안에 존재하기 때문에 생성 시 business logic 이 service layer 에 나갈 필요가 없어진다.</p>
+<p>이는 곧 코드의 간결함 및 가독성을 증대 시킨다.</p>
+<p>다만 단점으로는 모든 collections 을 일급 컬렉션으로 만들 경우 logic이 굉장히 복잡해지고 많아질 수 있다.</p>
+</blockquote>
+<p>이러한 일급 컬렉션을 먼저 언급한 이유는 <code>람다 표현식</code> 이 함수를 일급 컬렉션으로 사용하지 못하는 상황을 대체하기 위해 등장했기 때문이다.<del>두둥등장</del></p>
+<p>또한 일급 컬렉션처럼 함수를 사용할 경우 일급 컬렉션의 장점인 side-effect 에 대해 safe 한 개발도 가능하며 iterate 한 부분에서도 simple 하게 구현이 가능하다.</p>
+<p>이제 일급 컬렉션과 람다의 등장 이유를 알았으니 사용하는 방법을 알아보자 <del>ARABOZA</del> 먼저 그냥 다짜고짜 쓸 수는 당연히 없다. 우선 functional interface 가 존재해야 한다.
+java 에서 함수를 일급 컬렉션으로 쓰고자 하는 목적이였으니 함수를 일급 컬렉션처럼 선언해줘야 한다.</p>
+<p>이때 등장하는게 functional interface 인데, interface class 이면서 method 가 하나만 있는 interface 를 functional interface 라고 한다.</p>
+<pre><code>@FunctionalInterface
+public interface JKLambda {
+    String stringConcat(String s1, String s2);
+}
+</code></pre><p>이와 같은 interface 를 선언 후 사용 시에는 당연히 구현이 되어있지 않은 interface 이기 때문에 구현 (implement) 해서 사용해야 한다.</p>
+<p>lambda 가 없을 경우는 아래와 같은 방식으로 구현해서 사용해야 했다.</p>
+<pre><code>JKLambda jkLambda = new JKLambda() {
+    @Override
+    public String stringConcat(String s1, String s2) {
+        return s1 + &quot; &quot; + s2 + &quot;JK lambda, no lambda&quot;;
+    }
+};
+</code></pre><p>그러나 lambda expression 을 사용하면 아래와 같이 심플하게 구현이 가능하다.</p>
+<pre><code>JKLambda jKlambda = (a, b) -&gt; a + &quot; &quot; + b + &quot; JK lambda, use lambda&quot;;
+</code></pre><p>딱 봐도 한눈에 가독성이 뙇 생기고 코드로 작성하는 line 이나 글자 수도 몹시 작아진다.</p>
+<p>또한 iterate 상황에 대해서도 심플하게 구현이 가능하다.</p>
+<pre><code>List&lt;String&gt; list=new ArrayList&lt;&gt;();
+list.add(&quot;1&quot;);
+list.add(&quot;2&quot;);
+list.add(&quot;3&quot;);
+list.add(&quot;4&quot;);
+list.add(&quot;5&quot;);
+
+// no lambda
+for(String element : list) {
+    System.out.println(element);
+}
+
+// lambda
+list.forEach(
+    System.out::println
+);
+</code></pre><p>이와 같이 구현할 경우 object base 에 strict 한 구조를 만들 수 있기 때문에 immutable 에도 도움이 된다.</p>
+<blockquote>
+<p>주의해야 할 점은 <strong>삼항 연산자</strong> 와 <strong>람다 표현식</strong> 은 다르다는 점이다.</p>
+<p>본인은 람다 표현식이 값을 return 하기 때문에, 또 <code>선언하지 않는 익명 함수</code> 이기 때문에 별도의 interface 없이 바로 사용 가능하다고 생각했다.</p>
+<p>하지만 공부를 하면서, 또 다시 곰곰히 생각해보니 그럴바엔 그냥 util 성 method 를 만들면 되는 부분이였기에 본인이 전혀 다르게 생각하고 접근했었던 것이다.</p>
+<p>개인적으로 본인과 동일한 생각으로 접근하는 분들이 있을 수 있다 생각하여 노파심에 작성해둔다.</p>
+</blockquote>
+<h2 id="그래서">그래서?</h2>
+<p>개발에 silver bullet 은 없다. 다만 항상 기존의 것과 새로운 것을 조합해서 더 효율적으로 개발하는 것이 우리가 지향해야 하는 점이라고 생각한다.
+그러한 부분에 입각해서 새 기술을 쌓는 것에 대해 게을리 해서는 안된다고 생각한다.</p>
+<p>지금 이 lambda 식도 사실 <code>legacy 에 전체 적용</code> 한다거나 <code>이게 좋으니 이것만으로 개발해야해!</code> 라는 접근법을 가질수도 없고 가져서도 안된다.<del>본인이 그러했다</del></p>
+<p>다만 늘 이야기 했듯이 기술 stack이 쌓여서 조금 더 효율적으로 풀어 나갈 수 있는 branch 하나가 생겨남으로 조금이라도 더 효율적인 개발 방식을 지향하는게 개발자들이
+평생 공부해야하는 이유이지 않을까 싶다.</p>
+<p>performance 라는 단어 안에 program 의 속도, 효율성 뿐만 아니라 개발자간 상호작용과 유지보수 또한 포함되지 않는가?</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
