@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jungqui.github.io/tags/java/</loc>
+    <lastmod>2020-09-08T15:07:43+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jungqui.github.io/posts/</loc>
+    <lastmod>2020-09-08T15:07:43+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/programming/</loc>
     <lastmod>2020-09-08T15:07:43+09:00</lastmod>
   </url>
   
@@ -18,22 +28,12 @@
   </url>
   
   <url>
-    <loc>https://jungqui.github.io/tags/java/</loc>
-    <lastmod>2020-09-07T13:38:49+09:00</lastmod>
+    <loc>https://jungqui.github.io/tags/</loc>
+    <lastmod>2020-09-08T15:07:43+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://jungqui.github.io/posts/lambda/</loc>
-    <lastmod>2020-09-07T13:38:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/programming/</loc>
-    <lastmod>2020-09-07T13:38:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/</loc>
     <lastmod>2020-09-07T13:38:49+09:00</lastmod>
   </url>
   
