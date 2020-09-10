@@ -105,20 +105,20 @@
 <ul>
 <li>synchronized 방식</li>
 </ul>
-<pre><code>public synchronized void checkSync(String threadId) {
-    System.out.println(&quot;JK Thread in (synchronized) : &quot; + threadId);
-}
-</code></pre><ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">checkSync</span><span style="color:#f92672">(</span>String threadId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;JK Thread in (synchronized) : &#34;</span> <span style="color:#f92672">+</span> threadId<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
 <li>Reentrant Lock 방식</li>
 </ul>
-<pre><code>ReentrantLock reentrantLock = new ReentrantLock();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ReentrantLock reentrantLock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReentrantLock<span style="color:#f92672">();</span>
 
-public void checkReentrantLock(String threadId) {
-    reentrantLock.lock();
-    System.out.println(&quot;JK Thread in (Reentrant) : &quot; + threadId);
-    reentrantLock.unlock();
-}
-</code></pre><blockquote>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">checkReentrantLock</span><span style="color:#f92672">(</span>String threadId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    reentrantLock<span style="color:#f92672">.</span><span style="color:#a6e22e">lock</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;JK Thread in (Reentrant) : &#34;</span> <span style="color:#f92672">+</span> threadId<span style="color:#f92672">);</span>
+    reentrantLock<span style="color:#f92672">.</span><span style="color:#a6e22e">unlock</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
 <p>source code 는 <a href="https://github.com/JUNGQUI/spring/blob/master/src/main/java/com/jk/spring/lock/JKLock.java">여기</a> 에 있고
 test code 는 <a href="https://github.com/JUNGQUI/spring/blob/master/src/test/java/com/jk/spring/JKTestNotePad.java">저기</a> 에 있다.</p>
 </blockquote>

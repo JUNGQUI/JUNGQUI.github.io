@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Transaction </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/transaction/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Transaction"/>
+<meta name="twitter:description" content="Transaction? 위키피디아의 정의에서 transaction은 데이터베이스 트랜잭션(Database Transaction)은 데이터베이스 관리 시스템 또는 유사한 시스템에서 상호작용의 단위이다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Transaction
+        </h3>
+        
+        </div>
+
+    <h2 id="transaction">Transaction?</h2>
+<p>위키피디아의 정의에서 transaction은 <code>데이터베이스 트랜잭션(Database Transaction)은 데이터베이스 관리 시스템 또는 유사한 시스템에서 상호작용의 단위이다.</code> 라고 정의되어 있다.</p>
+<p>이와 같이 시스템 내에서의 작업의 단위로 볼 수 있는데, DB에서는 DB I/O 간의 1회 connection 시의 작업 단위이며, 이 작업 단위 상에서는 ACID가 지켜져야 한다.</p>
+<blockquote>
+<p>ACID <del>산성</del> (원자성(Atomicity), 일관성(Consistency), 독립성(Isolation), 영구성(Durability) 의 첫 글자를 따온 약어)</p>
+<ul>
+<li>Atomicity</li>
+</ul>
+<p>transaction 도중 중간에 작업의 단위를 끊고 일부만 진행하는 것은 존재할 수 없다.</p>
+<p>ex) <code>계좌 A 와 계좌 B 간의 이체</code> 를 하나의 작업으로 간주 시, A에서 출금 후 작업 종료 (금액 증발) 과 같은 경우는 있어선 안된다.</p>
+<ul>
+<li>Consistency</li>
+</ul>
+<p>transaction 은 시스템 내에서 정의된 제약 조건에 대해서는 어떠한 작업이 오더라도 지켜져야 한다.</p>
+<p>ex) <code>현금 카드 사용 시 금액 차감</code> 이 하나의 작업이며 <code>현금 카드 잔액은 항상 0 이상</code> 이 제약 조건일 경우 현금 카드는 실제 결제를 하지 않고 실패 처리</p>
+<ul>
+<li>Isolation</li>
+</ul>
+<p>모든 작업 도중에는 transaction 은 해당 transaction 만 존재 할 수 있다. 하지만 상황에 따라 transaction 이 확장 될 수 있다.</p>
+<p>ex) <code>이체</code> 와 <code>입금</code> 작업이 동시에 진행 될 경우 먼저 요청받은 순서대로 해당 작업을 진행하고 완료 이전 까지 다음 작업은 lock 상태에서 대기한다.</p>
+<ul>
+<li>Durability</li>
+</ul>
+<p>모든 transaction 은 성공적으로 작업 될 경우 DB에 영구적으로 반영되어야 한다. 이를 통해 transaction 을 작업의 단위로 두고 DB lock 등을 통해 data 의 일관성을 유지 할 수 있다.</p>
+<p>ex) query 작업 완료 이후 commit 을 진행하기 전까지 (즉, transaction 이 완전히 끝나기 전까지) application 내에서는 작업이 반영되어 있지만 DB 에는 여전히 작업이 되어 있지 않다.
+이후 commit 을 통해 반영을 한 뒤 DB에 비로소 작업한 내역이 반영된다.</p>
+</blockquote>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>대다수의 application 에서는 DB 작업이 빠질 수 없는데, 이 DB 작업 시 transaction 은 선택이 아닌 필수다. 사실 본인도 이러한 개념만 알고 사용하고 있었는데 이 외에
+위의 ACID 등 원칙을 지키면서 추가 option 이 여러가지 있는데, 상황에 따라 이러한 부분을 선택해서 사용하면 굉장히 유용히 쓸 수 있을 것이다.</p>
+<p>예를 들어 후술할 transaction  옵션 중 propagation 이라는 것이 있는데 여기에서 REQUIRED_NEW 와 같이 사용하면 작업 진행 중 별도의 작업으로 새로 분리 할 수 있다.
+전체 flow(이하 A) 에서 필수는 아니지만 개발자 편의상 DB 작업을 해야 하는 table 이 있다면(이하 B) 이와 같은 option 으로 작업 중 부드럽게 transaction  분리 및 별도 작업이 가능하다.
+이를 통해 A 작업과 B 작업을 분리하여 만약 B 작업이 실패하여도 A 작업에 영향을 끼치지 않게 개발 할 수 있다.</p>
+<h2 id="구성">구성</h2>
+<p>transaction 은 위에서 언급했듯이 하나의 논리적 작업의 단위이다. 보통 개발에서는 이 부분에 대해 DB I/O 작업 단위로 구성되어 있다.</p>
+<p>transaction 에는 5가지 상태가 존재하는데, 활동(Active), 실패(Failed), 철회(Aborted), 부분 완료(Partially Committed), 완료(Committed) 단계로 나뉘어져 있다.</p>
+<p>각 단계는 <code>활동 - task == success ? : 부분 완료 - 완료 : 실패 - 철회</code> 로 나뉘어져 상태가 변경되고 <code>완료 || 실패</code> 에 도달할 경우 transaction 이 종료된다.</p>
+<ul>
+<li>활동(Active)</li>
+</ul>
+<p>말 그대로 활성화 된 다음부터 작업이 진행되는 도중의 상태이다. 이 상태일때는 query 로 볼 시</p>
+<pre><code class="language-bigquery" data-lang="bigquery">BEGIN;
+
+SELECT * FROM SOME_TABE;
+
+COMMIT;
+
+</code></pre><p><code>SELECT</code> 부분이 활성 상태라고 볼 수 있다.</p>
+<h2 id="그래서">그래서?</h2>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/db/">DB</a><a class="tag" href="/tags/spring/">spring</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>

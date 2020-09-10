@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DB on QUEUEZ DEV LOG</title>
+    <link>https://jungqui.github.io/tags/db/</link>
+    <description>Recent content in DB on QUEUEZ DEV LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Sep 2020 11:18:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://jungqui.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Transaction</title>
+      <link>https://jungqui.github.io/posts/transaction/</link>
+      <pubDate>Thu, 10 Sep 2020 11:18:19 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/transaction/</guid>
+      <description>Transaction? 위키피디아의 정의에서 transaction은 데이터베이스 트랜잭션(Database Transaction)은 데이터베이스 관리 시스템 또는 유사한 시스템에서 상호작용의 단위이다.</description>
+    </item>
+    
+  </channel>
+</rss>
