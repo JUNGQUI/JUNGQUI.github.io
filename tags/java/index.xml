@@ -6,10 +6,20 @@
     <description>Recent content in java on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2020 15:07:43 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 13:37:52 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exception</title>
+      <link>https://jungqui.github.io/posts/exception/</link>
+      <pubDate>Mon, 14 Sep 2020 13:37:52 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/exception/</guid>
+      <description>Exception? 단어적인 뜻으로는 예외 라는 의미를 가지고 있다.
+일반적으로 어떠한 약속을 제정할 때 이럴 경우 특수하니 일반적으로 처리하지 않는다.</description>
+    </item>
     
     <item>
       <title>Stream</title>
