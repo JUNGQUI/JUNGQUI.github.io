@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> QUEUEZ | java </title>
+    <title> QUEUEZ | Querydsl </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
     
@@ -10,16 +10,16 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://jungqui.github.io/tags/java/">
-    <link rel="alternate" type="application/rss+xml" href="https://jungqui.github.io/tags/java/index.xml" title="QUEUEZ DEV LOG" />
+    <link rel="canonical" href="https://jungqui.github.io/posts/querydsl/">
     
     
     <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
 
-<meta name="twitter:title" content="java"/>
-<meta name="twitter:description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다."/>
+<meta name="twitter:title" content="Querydsl"/>
+<meta name="twitter:description" content="queryDSL? 배경은 ORM 에서 시작했다.
+기본적으로 ORM 은 Object-Relation Mapping 이다."/>
 
 </head><body><div class="sidebar animated fadeInDown">
     <div class="logo-title">
@@ -79,62 +79,51 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-<div class="archive animated fadeInDown">
-   
-    <ul class="list-with-title">
-           
-      <div class="listing-title">2020</div>
-      
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/querydsl/" title="Querydsl">Querydsl</a>
-              <div class="post-time"><span class="date">Sep 16</span></div>
-            </div>
-          </div>
-    </ul>
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Querydsl
+        </h3>
+        
+        </div>
+
+    <h2 id="querydsl">queryDSL?</h2>
+<p>배경은 ORM 에서 시작했다.</p>
+<p>기본적으로 ORM 은 Object-Relation Mapping 이다. DB 를 query 로 접근하는 전통적인 방법이
+java 의 OOP 와는 맞지 않아 최대한 Query 를 자제하고 결과를 Object 로 반환 받아 사용하는 기법(?) 이다.</p>
+<p>java 개발자들에겐 복잡한 query 를 생각하지 않고 진행하면 된다는 점에서 한 줄기 빛과 같았는데 아주 치명적인 단점이 있었으니
+복잡한 query 이거나 data 가 급격하게 많아질수록 엄청난 performance 저하가 발생한다.</p>
+<p>그래서 나온 것이 HQL 과 같은 것들인데, 실제로 HQL 을 할 경우 일반 query 처럼 사용하여 특수한 경우에만 performance 저하 없이 사용 할 수 있었다.</p>
+<p>다만 이럼에도 불구하고 이렇게 사용할 경우 String 을 통해 query 를 만들기 때문에</p>
+<ol>
+<li>가독성 저하, co-op 어려움</li>
+<li>build 시가 아닌 application 구동 후 해당 method 호출 시 error 확인 가능</li>
+</ol>
+<p>이러한 단점이 있다.</p>
+<p>string 으로 만들어야 하는 native query 의 이러한 단점을 커버하기 위해 만들어진게 queryDSL 이다.</p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>builder pattern 과 비슷하게 query 자체를 method 등을 이용해서 구성을 하기 때문에 가독성 측면에서 유리하며
+다른 ORM 을 이용해 query 를 호출했을 때 dialect 등을 이용해 query 자체가 무거워지는 ORM 과는 다르게 실제로 mapping 된 method 에 맞게
+query 가 구성되기 때문에 성능 저하 측면이 없다.</p>
+<p>다만 목적성 자체가 검색 및 조회에 특화되어 있는 기술이기 때문에 insert 와 update 등으로는 구성되어 있지 않다.</p>
+<h2 id="구성">구성</h2>
+<p>계속 집필&hellip;</p>
+<h2 id="그래서">그래서?</h2>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/java/">java</a><a class="tag" href="/tags/spring/">spring</a><a class="tag" href="/tags/orm/">ORM</a><a class="tag" href="/tags/jpa/">JPA</a><a class="tag" href="/tags/db/">DB</a></span>
+
+      </div>
+    </div>
+
     
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/exception/" title="Exception">Exception</a>
-              <div class="post-time"><span class="date">Sep 14</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/stream/" title="Stream">Stream</a>
-              <div class="post-time"><span class="date">Sep 8</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/lambda/" title="Lambda">Lambda</a>
-              <div class="post-time"><span class="date">Sep 7</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/lock/" title="Lock">Lock</a>
-              <div class="post-time"><span class="date">Sep 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://jungqui.github.io/posts/static/" title="Static">Static</a>
-              <div class="post-time"><span class="date">Sep 1</span></div>
-            </div>
-          </div>
-    </ul>
-    
-    
-  </div>
+</div>
+
 
                 </div>
             </div>

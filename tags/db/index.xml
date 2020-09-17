@@ -6,10 +6,20 @@
     <description>Recent content in DB on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2020 11:18:19 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 22:10:56 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Querydsl</title>
+      <link>https://jungqui.github.io/posts/querydsl/</link>
+      <pubDate>Wed, 16 Sep 2020 22:10:56 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/querydsl/</guid>
+      <description>queryDSL? 배경은 ORM 에서 시작했다.
+기본적으로 ORM 은 Object-Relation Mapping 이다.</description>
+    </item>
     
     <item>
       <title>Transaction</title>

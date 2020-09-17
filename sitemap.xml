@@ -3,43 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jungqui.github.io/posts/exception/</loc>
-    <lastmod>2020-09-14T13:37:52+09:00</lastmod>
+    <loc>https://jungqui.github.io/tags/db/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://jungqui.github.io/tags/java/</loc>
-    <lastmod>2020-09-14T13:37:52+09:00</lastmod>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/jpa/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/orm/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://jungqui.github.io/posts/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/posts/querydsl/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/spring/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/</loc>
+    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/posts/exception/</loc>
     <lastmod>2020-09-14T13:37:52+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://jungqui.github.io/tags/programming/</loc>
     <lastmod>2020-09-14T13:37:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/</loc>
-    <lastmod>2020-09-14T13:37:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/</loc>
-    <lastmod>2020-09-14T13:37:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/db/</loc>
-    <lastmod>2020-09-10T11:18:19+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/spring/</loc>
-    <lastmod>2020-09-10T11:18:19+09:00</lastmod>
   </url>
   
   <url>
