@@ -18,7 +18,8 @@
 <meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
 
 <meta name="twitter:title" content="Graphql"/>
-<meta name="twitter:description" content="graphQL? 왜 알아야 하나? 구성 그래서? "/>
+<meta name="twitter:description" content="graphQL? facebook 에서 개발한 쿼리 언어이다.
+그렇다면 진행하기 앞서 쿼리 언어란 무엇인가에 대해 알아봐야 할 것이다."/>
 
 </head><body><div class="sidebar animated fadeInDown">
     <div class="logo-title">
@@ -88,9 +89,93 @@
         </div>
 
     <h2 id="graphql">graphQL?</h2>
+<p>facebook 에서 개발한 쿼리 언어이다.</p>
+<p>그렇다면 진행하기 앞서 쿼리 언어란 무엇인가에 대해 알아봐야 할 것이다.</p>
+<p>가장 익숙한 쿼리 언어는 SQL 일 것이다. Structured Query Language 의 약어인 SQL 은 우리가 흔히 쓰는</p>
+<p>DB 접근 및 제어 언어이다. 단어 뜻으로 보면 <code>구조화 된 질의 언어</code> 라는 건데 결국 주요 포인트는 DB 제어 라는 거다.</p>
+<p>많은 RDB, DB 가 SQL 을 표준으로 선택하고 있을 정도로 보편화되어 있다. 그러나 그 대항마로 최근에 뜨기 시작한게 GraphQL (이하 gql) 이다.</p>
 <h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>SQL 과 다른 점은 전통적인 controller 방식이 아닌, object 구조와 gql 정의 spec <del>임의 명시</del> 을 통해 controller 역할을 resolver 가 해준다는 점이다.</p>
+<p>이러한 부분을 통해 FE - BE 간 협업 또한 쉬워지고 controller 를 일일이 구축하고 controller 에 신경을 쓰는 시간을 business logic 에 더 신경 쓸 수 있게 된다.</p>
+<p>개인적인 의견이지만, test 용 controller (mocking controller) 를 만드는 부분이 정통적인 controller 환경보다 훨씬 우수하다고 생각된다.</p>
+<p>그 이유는 아래에 서술한다.</p>
 <h2 id="구성">구성</h2>
-<h2 id="그래서">그래서?</h2>
+<p>gql 은 크게 type / input / Query / Mutation 으로 나뉘어진다.
+type 의 경우 gql 내에서의 class 선언이라고 볼 수 있다.
+input 의 경우 type 과 동일하지만 Mutation 을 할 경우 사용하는 type 의 일종이라 볼 수 있고,
+Query 의 경우 조건에 맞게 select sql,
+Mutation 의 경우 insert, update, delete sql 로 생각하면 된다.</p>
+<p>우선 gradle (혹은 maven) 을 통해 필요한 것들을 import 해야 한다.</p>
+<p>(본 글은 gradle 로 진행했기에 예시로 gradle, spring-boot 를 이용했다.)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">implementation <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">graphql</span><span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>kickstart<span style="color:#f92672">:</span>graphql<span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>tools<span style="color:#f92672">:</span>6<span style="color:#f92672">.</span><span style="color:#a6e22e">2</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+implementation <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">graphql</span><span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>kickstart<span style="color:#f92672">:</span>graphql<span style="color:#f92672">-</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">:</span>7<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+runtimeOnly <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">graphql</span><span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>kickstart<span style="color:#f92672">:</span>graphiql<span style="color:#f92672">-</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">:</span>7<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+testImplementation <span style="color:#960050;background-color:#1e0010">&#39;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">graphql</span><span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>kickstart<span style="color:#f92672">:</span>graphql<span style="color:#f92672">-</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>test<span style="color:#f92672">:</span>7<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">schema</span> {
+    <span style="color:#66d9ef">query</span>: <span style="color:#a6e22e">Query</span>
+    <span style="color:#a6e22e">mutation</span>: <span style="color:#a6e22e">Mutation</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mutation</span> {
+
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Query</span> {
+
+}
+</code></pre></div><p><code>schema.graphqls</code> file 을 통해 query 와 mutation 을 root 로써 정의해준다. 이렇게 root 로 정의해줌으로써 graphQL 이 정상적으로 작동하게 된다.</p>
+<p>위 두 가지가 중요한 설정 값이다. 이것만 설정해주면 모두 끝난 것이다. <del>참 쉽죠?</del></p>
+<p>이제 필요한 부분이 생겼을 때 graphQL file 을 생성해서 작성해주면 된다. 간단한 예시를 하나 들어보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GqlUserInformation</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> Long userId<span style="color:#f92672">;</span>
+  
+  <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tag<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> Intger notInclude<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이와 같은 object 가 있다고 가정하자. 물론 gql 용 Object 가 별도로 존재하는 상태에서 DAO 는 별도로 존재한다고 가정한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GqlUserInformation</span> {
+    userId: <span style="color:#a6e22e">ID</span>
+    tag: [<span style="color:#a6e22e">String</span>]
+    name: <span style="color:#a6e22e">String</span>
+    password: <span style="color:#a6e22e">String</span>
+}
+</code></pre></div><p>gql 로 표현하면 이와 같이 설정 할 수 있다. 물론 gql 내에 포함되지 않은 <code>notInclude</code> 변수의 경우 query 를 통해서 가져올 수 없다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QueryGqlUserInformation</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> GqlUserInformation <span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span>
+    SOME_LOGIC
+    <span style="color:#f92672">...</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이와 같은 service 에 대해 gql query 를 통해 한다면</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">extend</span> <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Query</span> {
+    findById(id: <span style="color:#a6e22e">ID</span>): <span style="color:#a6e22e">GqlUserInformation</span>
+}
+</code></pre></div><p>이와 같이 작성하면 된다. 이렇게 쉽게 작성이 가능하고 controller url mapping 없이 object 구조와 gql 정의만으로도 service 접근이 가능하기 때문에
+front-end 개발자가 gql 을 관리하고 back-end 개발자는 해당 spec 을 통해 service 를 만들어 제공해주는 식으로 개발을 진행 할 수 있다.</p>
+<p>완성된 Query gql 의 경우 다음과 같다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GqlUserInformation</span> {
+    userId: <span style="color:#a6e22e">ID</span>
+    tag: [<span style="color:#a6e22e">String</span>]
+    name: <span style="color:#a6e22e">String</span>
+    password: <span style="color:#a6e22e">String</span>
+}
+
+<span style="color:#66d9ef">extend</span> <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Query</span> {
+    findById(id: <span style="color:#a6e22e">ID</span>): <span style="color:#a6e22e">GqlUserInformation</span>
+}
+</code></pre></div><h2 id="그래서">그래서?</h2>
+<p>나온지 제법 되었음에도 gql 을 사용하는 거나 gql 을 이용한 open source 는 사실 아직 찾기 힘들다.
+다만 최근 상승세나 검색어 트렌드 등을 확인해보면 확실히 gql 이 많이 자리를 잡아가고 있는 것도 사실이고
+MSA 와 같은 것들을 보면 확실히 개발 역할군 자체가 분할되어 가는데 이런 경향에 gql 은 확실히 훌륭한 무기로 볼 수 있다.</p>
+<p>물론 learning-curve 도 심한 편이고 (기존 패러다임이 깨져버리기 때문에) 많이 사용되지 않았기 때문에 레퍼런스도 많이 없는 편이다.</p>
+<p>하지만 gradle import 를 보면 알 수 있듯이 spring 부터 시작해서 node, react 등 많은 framework 에서도 gql 에 대해 잘 쓸 수 있게
+좋은 module 들이 늘어나는 추세이다.</p>
+<p>한창 module 이 많아지고 나서 시작하기엔 curve 가 확실히 심한 편이니 미리 공부해둬서 migration 을 준비해보는건 어떨까?</p>
 
     </div>
     <div class="post-footer">
