@@ -98,8 +98,22 @@ java 의 OOP 와는 맞지 않아 최대한 Query 를 자제하고 결과를 Obj
 <p>다만 이럼에도 불구하고 이렇게 사용할 경우 String 을 통해 query 를 만들기 때문에</p>
 <ol>
 <li>가독성 저하, co-op 어려움</li>
-<li>build 시가 아닌 application 구동 후 해당 method 호출 시 error 확인 가능</li>
+<li>type-safe 하지 않음</li>
 </ol>
+<blockquote>
+<h4 id="type-safe">Type-safe?</h4>
+<p>비논리적 계산이 <code>합리적으로 계산이 가능 할 때</code> 계산을 할 때 Type-safe 하지 <strong>않</strong> 다고 한다.
+예를 들어 보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;print 4 time &#39;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span>)
+<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">NaN</span>
+</code></pre></div><p>javascript 의 경우 이와 같이 NaN 이 출력될지언정 입력 시엔 (compile) 아무런 반응이 없다.</p>
+<p>반면, java 의 경우</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;It Must Print 4 time &#34;</span> <span style="color:#f92672">*</span> 4<span style="color:#f92672">);</span>
+</code></pre></div><p>단번에 compile error 가 발생한다.</p>
+<p>이처럼 runtime 시 error 가 발생하는 경우 type-safe 하지 않고
+compile 시점 시 error 가 발생하는 경우 type-safe 하다고 판단한다.</p>
+<p>비슷한 개념으로 checked Exception 과 unchecked exception 이 있다.</p>
+</blockquote>
 <p>이러한 단점이 있다.</p>
 <p>string 으로 만들어야 하는 native query 의 이러한 단점을 커버하기 위해 만들어진게 queryDSL 이다.</p>
 <h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
