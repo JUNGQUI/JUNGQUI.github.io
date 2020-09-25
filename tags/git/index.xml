@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on QUEUEZ DEV LOG</title>
+    <link>https://jungqui.github.io/tags/git/</link>
+    <description>Recent content in git on QUEUEZ DEV LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Sep 2020 11:22:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://jungqui.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git</title>
+      <link>https://jungqui.github.io/posts/git/</link>
+      <pubDate>Fri, 25 Sep 2020 11:22:38 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/git/</guid>
+      <description>git? Version Control System 의 약어인 VCS 중 가장 강력한 tool 이다.</description>
+    </item>
+    
+  </channel>
+</rss>

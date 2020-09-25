@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Git </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/git/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Git"/>
+<meta name="twitter:description" content="git? Version Control System 의 약어인 VCS 중 가장 강력한 tool 이다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Git
+        </h3>
+        
+        </div>
+
+    <h2 id="git">git?</h2>
+<p>Version Control System 의 약어인 VCS 중 가장 강력한 tool 이다.</p>
+<p>최초 개발자는 그 유명한 <a href="https://ko.wikipedia.org/wiki/%EB%A6%AC%EB%88%84%EC%8A%A4_%ED%86%A0%EB%A5%B4%EB%B0%9C%EC%8A%A4">리누스 토발즈</a> 가 linux 커널 초기 개발자들과 함께 개발을 진행했다.</p>
+<p>VCS 중 DVCS(Distribute Version Control System) 가 오히려 맞는 분류인데, 그 이유는 DVCS 에서 현재 git 에서 사용하는 여러 branch 와 merge 의 개념이 도입되었기 때문이다.</p>
+<p>즉 master base 아래 여러 branch 로 분산 작업을 하고 그 중 merge 를 통해 버전을 관리하는게 git 의 주 목적이기 떄문에
+일반적인 VCS 가 아닌 DVCS 로 분류된다.</p>
+<p>git과 함께 대표적인 DVCS 는 머큐리얼, Bazaar 가 있다.</p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>아주 예전엔 SVN 이라는 걸 통해서 (그 전엔 CVS 가 있었음) 작업을 진행했었다. 당시 SVN 은 지금까지도 몇몇 기업에서 사용할 정도로 뛰어난 VCS 임은 부정 할 수 없지만
+VCS 내에서도 단점이 존재하는데, root 에 commit 을 하는 순간 해당 작업은 되돌려질 수 없으며 commit 이 된 부분이 다른 개발자들에게 즉각적으로 반영이 된다는 점이 바로 그 단점이다.</p>
+<p>반면 git 의 경우 모든 개발자가 master 에서 파생된 각자의 branch 를 가지고 있고 이 부분을 통해 각자 버전을 관리 할 수 있다.
+또한 필요에 따라 rebase 등을 통해 branch 관리도 가능하기 때문에 분산된 환경에서의 작업일수록 효율적으로 작업이 가능하다.</p>
+<h2 id="구성">구성</h2>
+<ul>
+<li>
+<p>branch</p>
+<p>영어로, 뜻은 &lsquo;가지&rsquo; 라고 한다. 가지라는 이름에서 알 수 있듯이 (그리고 git-flow 를 보면 알 수 있듯이) git 내 하나의 작업 단위라고 볼 수 있다.</p>
+<p>크게는 master 도 하나의 branch 로 볼 수 있고 작게는 본인의 branch 내에서 또 다른 하나의 기능 개발에 대해 새 version 관리를 했다면 이 또한 branch 라고 볼 수 있다.</p>
+<p>git 의 거의 모든 명령어는 이 branch 에 대한 관리로 이루어져 있다.</p>
+</li>
+</ul>
+<p>git 은 commit 과 push 가 별도로 분리되어 있다.</p>
+<ul>
+<li>
+<p>commit</p>
+<p>로컬 branch 내에서 변경 사항 적용, 이렇게 적용된 부분은 원격 branch 에는 적용되지 않는다. 이를 통해 commit 후 오류 혹은 변경점 발생 시 다시 수정하여 commit 을 하면
+추후 push 시 최종 반영분만 1회의 push 로 인지된다.</p>
+<p>원격 혹은 마스터 branch 입장에서는 깔끔하게 정리가 되기 떄문에 관리에 용이하다.</p>
+</li>
+<li>
+<p>push</p>
+<p>로컬에서 원격 branch 로의 변경점 적용이다. 별도의 허가 없이 push 시 SVN commit 처럼 적용이 된다.</p>
+</li>
+</ul>
+<p>이처럼 변경점에 대한 적용 부분도 2가지로 나뉘어 있고 이러한 개념을 바탕으로 분산 버전 관리가 가능하다.</p>
+<p>또한 mater - 원격 branch 간의 동기화 부분에서도 많은걸 지원해준다.</p>
+<p>가장 간단한 merge 부터, rebase 까지 사용하기에 따라 다양하고 편리하게 사용이 가능하다.
+다만 이러한 부분들 때문에 역설적이게도 learning curve 가 높은 편이다.</p>
+<p>rebase 와 기타 branch 전략은 추후에 다루도록 하겠다.</p>
+<h2 id="그래서">그래서?</h2>
+<p>사실 대부분의 회사가 SVN -&gt; git 으로 욺기는 추세이고 git 은 정말 아는 만큼 편하게, 다양하게 사용이 가능한 만큼 생각보다 많이 배워야 한다.
+단순히 commit, push 한다고 다 되는게 아니고 branch 관리라던가 기타 이러한 부분들에 대해서도 잘 알아야 git 을 쓴다고 말할 수 있다.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/vcs/">VCS</a><a class="tag" href="/tags/git/">git</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
