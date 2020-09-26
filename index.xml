@@ -6,10 +6,20 @@
     <description>Recent content on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Sep 2020 11:22:38 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 18:34:42 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Solid</title>
+      <link>https://jungqui.github.io/posts/solid/</link>
+      <pubDate>Sat, 26 Sep 2020 18:34:42 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/solid/</guid>
+      <description>SOLID? 객체지향 프로그래밍 패턴 원칙들의 약자다.
+SOLID 는 각각 SRP(단일 책임 원칙), OCP(개방-폐쇄 원칙), LSP(리스코프 치환 원칙), ISP(인터페이스 분리 원칙), DIP(의존 역전 원칙) 로 이루어져 있고, 앞 단어를 따서 만든 약어이다.</description>
+    </item>
     
     <item>
       <title>Git</title>
