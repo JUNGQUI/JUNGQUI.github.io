@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Ehcache </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/ehcache/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Ehcache"/>
+<meta name="twitter:description" content="Ehcache? cache 다. 위키피디아 에 다음과 같이 정의되어 있다.
+ 캐시(cache, 문화어: 캐쉬, 고속완충기, 고속완충기억기)는 컴퓨터 과학에서 데이터나 값을 미리 복사해 놓는 임시 장소를 가리킨다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Ehcache
+        </h3>
+        
+        </div>
+
+    <h2 id="ehcache">Ehcache?</h2>
+<p>cache 다. <a href="https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8B%9C">위키피디아</a> 에 다음과 같이 정의되어 있다.</p>
+<blockquote>
+<p>캐시(cache, 문화어: 캐쉬, 고속완충기, 고속완충기억기)는 컴퓨터 과학에서 데이터나 값을 미리 복사해 놓는 임시 장소를 가리킨다.</p>
+<p>캐시는 캐시의 접근 시간에 비해 원래 데이터를 접근하는 시간이 오래 걸리는 경우나 값을 다시 계산하는 시간을 절약하고 싶은 경우에 사용한다. 캐시에 데이터를 미리 복사해 놓으면 계산이나 접근 시간 없이 더 빠른 속도로 데이터에 접근할 수 있다.</p>
+<p>캐시는 시스템의 효율성을 위해 여러 분야에서 두루 쓰이고 있다.</p>
+</blockquote>
+<p>보통 web 내에서 정적인 데이터나 변하지 않은 데이터를 빠른 시간 내에 로딩하게 위해 web cache 를 가장 많이 접해 봤을 것이다.</p>
+<p>일반적으로 WAS - DB 간 통신의 비용이 몹시 비싸기 때문에 (큰 쿼리를 날려서 결과를 받아오는 과정)
+동일한 요청에 대해 해당하는 response 를 WAS 내 memory 나 disk 저장하고 해당 정보를 통해 비용을 줄이고 빠른 대응을 위해
+cache 를 사용한다.</p>
+<p>spring 은 3.1 부터 EHcache 를 이용하여 cache 를 활용할 수 있게 만들었다.</p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>사실 cache 에 대해 잘 활용하는 케이스는 못 봤다. (아직까지) 개인적으로 생각하기엔 cache 를 잘 쓰려면 최대한 변화가 없는
+정적인 data 에 대한 controller 라던가 하는 식으로 사용이 가능할 것이라 생각되는데 사실 서비스를 개발하다 보면 그러한 형식의
+controller 가 생각보다 많이 없고, 있다 하더라도 그러한 controller 는 대부분 cache 를 쓰지 않아도 performance 가
+걱정되는 수준은 아니기 때문에 사용하기에 무리가 있다고 생각한다.</p>
+<p>하지만 늘 그렇듯이 잘 사용하면 도움이 될 것은 명확하기에 공부를 해야 한다.</p>
+<h2 id="구성">구성</h2>
+<p>우선 gradle 에 cache 관련 library 를 설정해야 한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">...</span>
+compile<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">:</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>cache<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// https://mvnrepository.com/artifact/org.ehcache/ehcache
+</span><span style="color:#75715e">// net.sf.ehcache 가 2018년 10월부터 org.ehcache 로 변경되었다.
+</span><span style="color:#75715e"></span>compile group<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">ehcache</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>ehcache<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> version<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>3<span style="color:#f92672">.</span><span style="color:#a6e22e">9</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+<span style="color:#f92672">...</span>
+</code></pre></div><p><code>spring-boot-starter-cache</code> 를 통해 annotation 을 이용한 cache enable 및 설정 등이 가능해진다.
+또한 cache 는 ehcache 를 이용하기 위해 ehcache library 를 사용한다.</p>
+<p>가장 중요한 cache 를 생성해야 하는데 <code>ehcache.xml</code> 라는 이름으로 아래와 같이 생성하였다.</p>
+<p>(<a href="https://jojoldu.tistory.com/57">여기</a> 에서 참고하였다.)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;ehcache</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#a6e22e">xsi:noNamespaceSchemaLocation=</span><span style="color:#e6db74">&#34;http://ehcache.org/ehcache.xsd&#34;</span>
+  <span style="color:#a6e22e">updateCheck=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;diskStore</span> <span style="color:#a6e22e">path=</span><span style="color:#e6db74">&#34;java.io.tmpdir&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+  <span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  sampleCache1 캐시. 최대 10000개의 객체를 저장할 수 있으며,
+</span><span style="color:#75715e">  5분 이상 사용되지 않거나 또는 10분 이상 캐시에 저장되어 있을 경우
+</span><span style="color:#75715e">  캐시에서 제거된다. 저장되는 객체가 10000개를 넘길 경우,
+</span><span style="color:#75715e">  디스크 캐시에 저장한다.
+</span><span style="color:#75715e">  --&gt;</span>
+  <span style="color:#f92672">&lt;cache</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sampleCache1&#34;</span>
+    <span style="color:#a6e22e">maxElementsInMemory=</span><span style="color:#e6db74">&#34;10000&#34;</span>
+    <span style="color:#a6e22e">maxElementsOnDisk=</span><span style="color:#e6db74">&#34;1000&#34;</span>
+    <span style="color:#a6e22e">eternal=</span><span style="color:#e6db74">&#34;false&#34;</span>
+    <span style="color:#a6e22e">overflowToDisk=</span><span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#a6e22e">timeToIdleSeconds=</span><span style="color:#e6db74">&#34;300&#34;</span>
+    <span style="color:#a6e22e">timeToLiveSeconds=</span><span style="color:#e6db74">&#34;600&#34;</span>
+    <span style="color:#a6e22e">memoryStoreEvictionPolicy=</span><span style="color:#e6db74">&#34;LFU&#34;</span>
+  <span style="color:#f92672">/&gt;</span>
+
+  <span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  sampleCache2 캐시. 최대 1000개의 객체를 저장한다.
+</span><span style="color:#75715e">  오버플로우 된 객체를 디스크에 저장하지 않기 때문에
+</span><span style="color:#75715e">  캐시에 최대 개수는 1000개이다. eternal이 true 이므로,
+</span><span style="color:#75715e">  timeToLiveSeconds와 timeToIdleSeconds 값은 무시된다.
+</span><span style="color:#75715e">  --&gt;</span>
+  <span style="color:#f92672">&lt;cache</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sampleCache2&#34;</span>
+    <span style="color:#a6e22e">maxElementsInMemory=</span><span style="color:#e6db74">&#34;1000&#34;</span>
+    <span style="color:#a6e22e">eternal=</span><span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#a6e22e">overflowToDisk=</span><span style="color:#e6db74">&#34;false&#34;</span>
+    <span style="color:#a6e22e">memoryStoreEvictionPolicy=</span><span style="color:#e6db74">&#34;FIFO&#34;</span>
+  <span style="color:#f92672">/&gt;</span>
+
+  <span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  sampleCache3 캐시. 오버플로우 되는 객체를 디스크에 저장한다.
+</span><span style="color:#75715e">  디스크에 저장된 객체는 VM이 재가동할 때 다시 캐시로 로딩된다.
+</span><span style="color:#75715e">  디스크 유효성 검사 쓰레드는 10분 간격으로 수행된다.
+</span><span style="color:#75715e">  --&gt;</span>
+  <span style="color:#f92672">&lt;cache</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sampleCache3&#34;</span>
+    <span style="color:#a6e22e">maxElementsInMemory=</span><span style="color:#e6db74">&#34;500&#34;</span>
+    <span style="color:#a6e22e">eternal=</span><span style="color:#e6db74">&#34;false&#34;</span>
+    <span style="color:#a6e22e">overflowToDisk=</span><span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#a6e22e">timeToIdleSeconds=</span><span style="color:#e6db74">&#34;300&#34;</span>
+    <span style="color:#a6e22e">timeToLiveSeconds=</span><span style="color:#e6db74">&#34;600&#34;</span>
+    <span style="color:#a6e22e">diskPersistent=</span><span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#a6e22e">diskExpiryThreadIntervalSeconds=</span><span style="color:#e6db74">&#34;600&#34;</span>
+    <span style="color:#a6e22e">memoryStoreEvictionPolicy=</span><span style="color:#e6db74">&#34;LFU&#34;</span>
+  <span style="color:#f92672">/&gt;</span>
+
+<span style="color:#f92672">&lt;/ehcache&gt;</span>
+</code></pre></div><p>이렇게 cache 를 상황에 따라 다르게 생성함으로 그때 그때 사용이 가능하다.</p>
+<p>이제 실제로 controller 에 cache 를 적용한 부분을 보자면</p>
+<h4 id="controller">controller</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@EnableCaching</span> <span style="color:#75715e">// 해당 class 에 cache 를 적용하겠다는 annotation
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JKEhcache</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> TestObjectRepository testObjectRepository<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/cache/{name}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ehcache</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+		testObjectRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByNameCache</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">long</span> endTime <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; printed, &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>endTime <span style="color:#f92672">-</span> startTime<span style="color:#f92672">));</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nocache/{name}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">noEhcache</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+		testObjectRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByNameNoCache</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">long</span> endTime <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; printed, &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>endTime <span style="color:#f92672">-</span> startTime<span style="color:#f92672">));</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/cache/refresh/{name}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">refresh</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		testObjectRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">refresh</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="service">service</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> TestObject <span style="color:#a6e22e">findByNameNoCache</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    slowQuery<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">return</span> TestObject<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">createdDate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@Override</span>
+<span style="color:#a6e22e">@Cacheable</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sampleCache1&#34;</span><span style="color:#f92672">,</span> key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#name&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// sampleCache1 이란 이름의 cache 를 사용 할 것이며, name 을 기준으로 cache 를 적용한다.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> TestObject <span style="color:#a6e22e">findByNameCache</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    slowQuery<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">return</span> TestObject<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">createdDate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">())</span> <span style="color:#75715e">// createdDate 가 최초 cache 로 인해 생성된 값이 return 된다.
+</span><span style="color:#75715e"></span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@Override</span>
+<span style="color:#a6e22e">@CacheEvict</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sampleCache1&#34;</span><span style="color:#f92672">,</span> key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#name&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// 위와 동일하나 sampleCache1 을 초기화 한다.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">refresh</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;cache clear&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이와 같이 간단한 annotation 몇 가지를 이용해서 cache 를 활성화 할 수 있다.</p>
+<h2 id="그래서">그래서?</h2>
+<p>앞서 이야기 했듯이 사실 정적인 data 가 있을 때만 사용 할 수 있는데 위와 같은 logic 에서 본인은 동일한
+이름의 data 를 select 했지만, 실제 data 자체가 변형이 되어 (다른 controller 를 통해) 다른 값을
+내놓게 된다면 log 를 봐도 틀렸는지 아닌지 확인하기가 굉장히 어렵다.</p>
+<p>이렇기 때문에 잘 알고 사용해야 하고, business logic 자체도 빠삭(?)하게 알아야 한다.</p>
+<p>다만 잘만 사용한다면 정말 performance 적으로는 더할 나위 없이 큰 개선을 기대할 수 있다.</p>
+<p>실제로 예시로 사용해보니 딜레이 없이 바로 호출이 되었고, data 자체도 이전에 생성한 data 가 호출되었다.</p>
+<p><a href="https://github.com/JUNGQUI/spring">source code</a></p>
+<p><a href="https://jojoldu.tistory.com/57">참고 사이트</a></p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
