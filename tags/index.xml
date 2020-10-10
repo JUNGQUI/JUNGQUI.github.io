@@ -6,10 +6,19 @@
     <description>Recent content in Tags on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Oct 2020 20:05:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 13:22:01 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>programming</title>
+      <link>https://jungqui.github.io/tags/programming/</link>
+      <pubDate>Sat, 10 Oct 2020 13:22:01 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>java</title>
@@ -17,15 +26,6 @@
       <pubDate>Fri, 09 Oct 2020 20:05:43 +0900</pubDate>
       
       <guid>https://jungqui.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://jungqui.github.io/tags/programming/</link>
-      <pubDate>Fri, 09 Oct 2020 20:05:43 +0900</pubDate>
-      
-      <guid>https://jungqui.github.io/tags/programming/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,20 @@
     <description>Recent content in Posts on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Oct 2020 20:05:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 13:22:01 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gc2</title>
+      <link>https://jungqui.github.io/posts/gc2/</link>
+      <pubDate>Sat, 10 Oct 2020 13:22:01 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/gc2/</guid>
+      <description>GC? 다시 돌아온 GC 설명이다. Garbage Collector 의 줄임말이다.
+왜 알아야 하나?</description>
+    </item>
     
     <item>
       <title>Ehcache</title>
