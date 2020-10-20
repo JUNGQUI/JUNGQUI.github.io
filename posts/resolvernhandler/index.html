@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | ResolverNhandler </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/resolvernhandler/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="ResolverNhandler"/>
+<meta name="twitter:description" content="Resolver &amp; Handler? 뜻으로만 보면 resolve 역할을 수행하는 어떠한 것 (er) 이라고 볼 수 있다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>ResolverNhandler
+        </h3>
+        
+        </div>
+
+    <h2 id="resolver--handler">Resolver &amp; Handler?</h2>
+<p>뜻으로만 보면 resolve 역할을 수행하는 어떠한 것 (er) 이라고 볼 수 있다. Handler 또한 마찬가지로 helper 처럼 handling 을 해주는 것 (er) 이라고 볼 수 있다.</p>
+<p>보통 가장 많이 보는 것이 spring mvc Dispatcher Servlet 이 handlerMapping 을 통해 결과를 수행하고 화면에 전달할 때 쓰는 view resolver 일 것이다.</p>
+<blockquote>
+<ul>
+<li>view resolver?</li>
+</ul>
+<p>spring mvc 에서 data flow 를 보면 화면을 보여주는 과정이</p>
+<p>client -&gt; Dispatcher Servlet -&gt; HandlerMapping -&gt; Controller -&gt; Dispatcher Servlet -&gt; view resolver -&gt; client</p>
+<p>와 같이 진행 되는데, D.S 에서 HandlerMapping 을 통해 server 내 url 에 mapping 을 해주고 이와 같은 과정을 통해
+controller 와 연결이 된다.</p>
+<p>이후 controller 내에서 비즈니스 로직을 수행하고 화면을 보여줘야 할 경우 view resolver 를 통해 client 에게 화면을 제공해준다.</p>
+</blockquote>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>그냥 내가 알고 싶어서(&hellip;) 진행한다. 사실 개발하면서 resolver 를 순수 구축해서 사용하는 등의 경우가 왕왕 있었는데, 정확하게 resolver 나 handler, helper 등에 대해
+정의가 머릿속에 없어서 정리할 겸 진행하기로 했다.</p>
+<h2 id="구성">구성</h2>
+<p>사실 마땅찮은 구성은 없다. 구현하기에 따라 이름 붙이기에 따라 resolver, handler, helper 등을 사용하는 것 같은데, 가장 예시를 들기 좋은게 spring mvc 의 resolver 라
+spring mvc 를 기준으로 작성한다.</p>
+<p>spring boot 에서 thymeleaf template 사용 시 ThymeleafViewResolver 가 기본적으로 view resolver 역할을 한다. <del>아마도</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">...</span>
+<span style="color:#75715e">// html return 시 string return 으로 redirect: 를 지정하듯이 resolver 가 지정해준다.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String REDIRECT_URL_PREFIX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;redirect:&#34;</span><span style="color:#f92672">;</span>
+    
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String FORWARD_URL_PREFIX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;forward:&#34;</span><span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> redirectContextRelative <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> redirectHttp10Compatible <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> alwaysProcessRedirectAndForward <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> producePartialOutputWhileProcessing <span style="color:#f92672">=</span> AbstractThymeleafView<span style="color:#f92672">.</span><span style="color:#a6e22e">DEFAULT_PRODUCE_PARTIAL_OUTPUT_WHILE_PROCESSING</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">// viewClass 로 ThymeleafView.class 를 지정해준다. 이를 통해 Thymeleaf template 에 맞는 화면들을 render 할 수 있다.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> AbstractThymeleafView<span style="color:#f92672">&gt;</span> viewClass <span style="color:#f92672">=</span> ThymeleafView<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>   
+<span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> viewNames <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> excludedViewNames <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> order <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">;</span>
+
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> staticVariables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;(</span>10<span style="color:#f92672">);</span>
+<span style="color:#66d9ef">private</span> String contentType <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> forceContentType <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">private</span> String characterEncoding <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">private</span> ISpringTemplateEngine templateEngine<span style="color:#f92672">;</span>
+<span style="color:#f92672">...</span>
+</code></pre></div><p>아주 잠깐 살펴보고 바로 이해할 수 있는 부분들은 resolver 는 개발자들이 실제로 신경써서 개발해야 하는 static 한 설정들에 대해
+자동으로 설정을 해주고 해결해준다. 이와 같은 부분들이 resolver 가 하는 역할이라 볼 수 있다.</p>
+<p>Handler 또한 resolver 와 비슷한 개념인데, 가장 대표적인게 Android 에서의 UI 작업 중 worker thread 의 결과 값을 main thread 에 전달하는 handler 가 있다.</p>
+<p>main thread 와 worker thread 가 동시에 화면에 접근하여 처리 할 경우 critical section error 가 발생 할 수 있기에
+worker thread 가 별도의 작업 후 setting 시 main thread 에 render 를 요청하게 된다.</p>
+<p>이 때 work thread 의 결과 값을 main thread 에 전달하는 작업을 handler 가 대신 진행해준다.</p>
+<h2 id="그래서">그래서?</h2>
+<p>이와 같이 반복적인 static 한 작업에 대해 대신 설정 및 수행을 해주는 역할이 resolver, handler, helper 등으로 명시 할 수 있다.</p>
+<p>최근 들어 MSA 가 활발히 성행(?) 하고 있기에 비슷한 개념으로 DAO / DTO 분리 후 mapping 하는 작업에 대해서 빈번하게 개발하고 있는데
+상호간 mapper 를 만들어서 stream + lambda 식으로 진행하고 있다.</p>
+<p>이러한 부분들이 resolver 라고 볼 수 있는데 spring mvc resolver 를 참조해서 최대한 이쁘게(?) 만들어야겠다.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
