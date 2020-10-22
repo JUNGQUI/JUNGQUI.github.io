@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Reflection </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/reflection/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Reflection"/>
+<meta name="twitter:description" content="Reflection? 영어로 해석하자면 반사 라는 뜻을 가진다.
+그 뜻에 걸맞게 java 에선 jvm 의 runtime 시 동작하는 object 의 class, method name, annotation 등을 알 수 있다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Reflection
+        </h3>
+        
+        </div>
+
+    <h2 id="reflection">Reflection?</h2>
+<p>영어로 해석하자면 <code>반사</code> 라는 뜻을 가진다.</p>
+<p>그 뜻에 걸맞게 java 에선 jvm 의 runtime 시 동작하는 object 의 class, method name, annotation 등을
+알 수 있다.</p>
+<p>runtime 시 접근이 가능해서 반사라는 의미를 부여해서 reflection 이라 명명했다고 한다. <del>카더라</del></p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>사실 사용하지 않는 것은 아니다. 기본적으로 spring framework 내에서 사용 시 reflection 을 통해 annotation 을 적용한다는지
+spring bean factory 를 통해 application 최초 구동 시 bean 객체를 만들때도 사용한다.</p>
+<p>이러한 특징을 살려 기본적인 java code 외 상황에 따라 reflection 을 이용해 custom annotation 이나 기타 object 를 만들어
+손쉽게 로직을 풀어 나갈 수 있다.</p>
+<h2 id="구성">구성</h2>
+<ul>
+<li>
+<p>getType() : 필드 타입 클래스</p>
+</li>
+<li>
+<p>getAnnotations() : 필드에 달린 어노테이션의 클래스들</p>
+</li>
+<li>
+<p>getDeclaringClass() : 해당 필드가 어떤 클래스에서 선언되었는지 (부모클래스일수도 있음)</p>
+</li>
+<li>
+<p>setAccessible(Boolean b) : 프라이빗 필드는 보통 접근이 불가. true 로 해줘야 가능</p>
+</li>
+<li>
+<p>get(Object obj) : 특정 object 에서 해당 필드의 value 를 가져오기</p>
+</li>
+</ul>
+<p>이와 같은 class 가 있다고 하자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#a6e22e">@Getter</span>
+<span style="color:#a6e22e">@Builder</span>
+<span style="color:#a6e22e">@NoArgsConstructor</span>
+<span style="color:#a6e22e">@AllArgsConstructor</span>
+<span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TEST_OBJ&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestObject</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// lob 절 대 쓰 지 마
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 뭔가 방법이 있을텐데, ResultSet extract 를 실패한다.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Lob</span>
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>columnDefinition <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">//    @Type(type = &#34;text&#34;)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Temporal</span><span style="color:#f92672">(</span>TemporalType<span style="color:#f92672">.</span><span style="color:#a6e22e">TIMESTAMP</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Date createdDate<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Temporal</span><span style="color:#f92672">(</span>TemporalType<span style="color:#f92672">.</span><span style="color:#a6e22e">TIMESTAMP</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Date updatedDate<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReflectionTest</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reflectionTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    TestObject testObject <span style="color:#f92672">=</span> TestObject<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">(</span>1L<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">createdDate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">updatedDate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+    <span style="color:#75715e">// 첫 field 는 Long type 의 id 가 지정된다.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Field field <span style="color:#f92672">:</span> testObject<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getDeclaredFields</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 1. img
+</span><span style="color:#75715e"></span>        field<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotatedType</span><span style="color:#f92672">();</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredAnnotations</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 2. img
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://jungqui.github.io/images/reflection/field_getType.png" alt="field.getType()">
+1번 이미지</p>
+<p><img src="https://jungqui.github.io/images/reflection/filed_getAnntation.png" alt="field.getDeclaredAnnotations()">
+2번 이미지</p>
+<p>이와 같이 만약, class 내의 정보를 모른다고 하더라도 이와 같이 class 내의 정보를 runtime 시 가져와서 사용이 가능하다.</p>
+<p>사실 이렇게만 쓴다면 이걸 왜 써야 하는지 잘 모를 수 있다. 하지만 대표적인 reflection 사용의 예는 custom annotation 이다.</p>
+<hr>
+<p>특정 변수를 선언 할 때마다 별도의 <code>이름</code> 을 지정하고 그 이름을 출력하는 로직을 사용한다고 가정을 하자.</p>
+<p>만약 어노테이션과 리플렉션을 사용하지 않는다면 Object 내에 별도의 param 을 만들어 항상 생성 시 마다 지정을 해야 할 것이다.</p>
+<p>이름 하나를 출력하기 위해 class 내에 param 을 생성하는 것은 너무 비효율적인 방법이다. 하지만 reflection 과 annotation 을 이용한다면 아래와 같이 구성이 가능하다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> JKAnnotation <span style="color:#f92672">{</span>
+  String <span style="color:#a6e22e">name</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#34;JKLee&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>target : 해당 annotation 을 어떤</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Data</span>
+<span style="color:#a6e22e">@NoArgsConstructor</span>
+<span style="color:#a6e22e">@AllArgsConstructor</span>
+<span style="color:#a6e22e">@JKAnnotation</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnnotationObject</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// -------------다른 class 라 가정한다----------------- //
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@Data</span>
+<span style="color:#a6e22e">@NoArgsConstructor</span>
+<span style="color:#a6e22e">@AllArgsConstructor</span>
+<span style="color:#a6e22e">@JKAnnotation</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;not default&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnnotationObjectNotDefault</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnnotationTest</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">annotationTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    AnnotationObject annotationObject <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationObject<span style="color:#f92672">(</span>
+        <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;content&#34;</span>
+    <span style="color:#f92672">);</span>
+  
+    AnnotationObjectNotDefault annotationObjectNotDefault <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationObjectNotDefault<span style="color:#f92672">(</span>
+        <span style="color:#e6db74">&#34;name not default&#34;</span><span style="color:#f92672">,</span>
+		<span style="color:#e6db74">&#34;content not default&#34;</span>
+	<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">// 실제 로직이 이와 같다 가정하자.
+</span><span style="color:#75715e"></span>    List<span style="color:#f92672">&lt;</span>Annotation<span style="color:#f92672">&gt;</span> annotations <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>annotationObject<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAnnotations</span><span style="color:#f92672">()));</span>
+    annotations<span style="color:#f92672">.</span><span style="color:#a6e22e">addAll</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>annotationObjectNotDefault<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAnnotations</span><span style="color:#f92672">()));</span>
+
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Annotation annotation <span style="color:#f92672">:</span> annotations<span style="color:#f92672">){</span>
+      <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>annotation <span style="color:#66d9ef">instanceof</span> JKAnnotation<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// annotation 을 이용해서 지정한 name을 출력한다.
+</span><span style="color:#75715e"></span>        JKAnnotation myAnnotation <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>JKAnnotation<span style="color:#f92672">)</span> annotation<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name: &#34;</span> <span style="color:#f92672">+</span> myAnnotation<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">());</span>
+      <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이외에도 여러가지가 있는데 본인이 진행하면서 익숙해질겸 파악하길 바란다.</p>
+<p><del>사실 필자부터 익숙하지가 않다;</del></p>
+<h2 id="그래서">그래서?</h2>
+<p>앞으로 필자도 꾸준히 공부를 할 예정이다. 단순히 개념만 파악하는것 보다 실제 사용해가면서 필요한 부분에
+요소요소 형식으로 프로젝트를 꾸며나가다 보면 정말 아름답고 간단하게 구현을 할 수 있을 것 같다.</p>
+<p>코드는 <a href="https://github.com/JUNGQUI/spring">여기</a> 에 있다.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a><a class="tag" href="/tags/spring/">spring</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
