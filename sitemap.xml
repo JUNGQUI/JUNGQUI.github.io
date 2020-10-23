@@ -3,22 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jungqui.github.io/tags/db/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/jpa/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/posts/nquery/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/posts/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jungqui.github.io/tags/</loc>
+    <lastmod>2020-10-23T21:58:01+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jungqui.github.io/tags/java/</loc>
     <lastmod>2020-10-21T22:25:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jungqui.github.io/posts/</loc>
-    <lastmod>2020-10-21T22:25:06+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jungqui.github.io/tags/programming/</loc>
-    <lastmod>2020-10-21T22:25:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/</loc>
     <lastmod>2020-10-21T22:25:06+09:00</lastmod>
   </url>
   
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://jungqui.github.io/tags/spring/</loc>
-    <lastmod>2020-10-21T22:25:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/</loc>
     <lastmod>2020-10-21T22:25:06+09:00</lastmod>
   </url>
   
@@ -78,11 +93,6 @@
   </url>
   
   <url>
-    <loc>https://jungqui.github.io/tags/db/</loc>
-    <lastmod>2020-09-21T20:58:34+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jungqui.github.io/posts/graphql/</loc>
     <lastmod>2020-09-21T20:58:34+09:00</lastmod>
   </url>
@@ -90,11 +100,6 @@
   <url>
     <loc>https://jungqui.github.io/tags/query/</loc>
     <lastmod>2020-09-21T20:58:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jungqui.github.io/tags/jpa/</loc>
-    <lastmod>2020-09-16T22:10:56+09:00</lastmod>
   </url>
   
   <url>

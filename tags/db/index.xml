@@ -6,10 +6,19 @@
     <description>Recent content in DB on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Sep 2020 20:58:34 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2020 21:58:01 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nquery</title>
+      <link>https://jungqui.github.io/posts/nquery/</link>
+      <pubDate>Fri, 23 Oct 2020 21:58:01 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/nquery/</guid>
+      <description>N+1 query? 문자로만 보면 N 번의 쿼리를 날릴 때 +1 회 쿼리가 발생한다는 거고, 그게 문제라는 거다.</description>
+    </item>
     
     <item>
       <title>Graphql</title>

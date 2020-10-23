@@ -6,10 +6,28 @@
     <description>Recent content in Tags on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2020 22:25:06 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2020 21:58:01 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DB</title>
+      <link>https://jungqui.github.io/tags/db/</link>
+      <pubDate>Fri, 23 Oct 2020 21:58:01 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/tags/db/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JPA</title>
+      <link>https://jungqui.github.io/tags/jpa/</link>
+      <pubDate>Fri, 23 Oct 2020 21:58:01 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/tags/jpa/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>java</title>
@@ -57,29 +75,11 @@
     </item>
     
     <item>
-      <title>DB</title>
-      <link>https://jungqui.github.io/tags/db/</link>
-      <pubDate>Mon, 21 Sep 2020 20:58:34 +0900</pubDate>
-      
-      <guid>https://jungqui.github.io/tags/db/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>query</title>
       <link>https://jungqui.github.io/tags/query/</link>
       <pubDate>Mon, 21 Sep 2020 20:58:34 +0900</pubDate>
       
       <guid>https://jungqui.github.io/tags/query/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JPA</title>
-      <link>https://jungqui.github.io/tags/jpa/</link>
-      <pubDate>Wed, 16 Sep 2020 22:10:56 +0900</pubDate>
-      
-      <guid>https://jungqui.github.io/tags/jpa/</guid>
       <description></description>
     </item>
     
