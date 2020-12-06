@@ -6,10 +6,19 @@
     <description>Recent content in spring on QUEUEZ DEV LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2020 22:25:06 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 09:14:14 +0900</lastBuildDate>
     
 	<atom:link href="https://jungqui.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Requestparam_body</title>
+      <link>https://jungqui.github.io/posts/requestparam_body/</link>
+      <pubDate>Sun, 06 Dec 2020 09:14:14 +0900</pubDate>
+      
+      <guid>https://jungqui.github.io/posts/requestparam_body/</guid>
+      <description>RequestParam? RequestBody? PathVariable? controller 에 parameter 를 전달하는 방법은 여러가지가 있는데, 대표적으로 RequestParam, RequestBody, PathVariable 이 있다.</description>
+    </item>
     
     <item>
       <title>Reflection</title>

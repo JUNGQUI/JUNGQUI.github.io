@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> QUEUEZ | Requestparam_body </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.">
+    
+    <link rel="stylesheet" href="https://jungqui.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://jungqui.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jungqui.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jungqui.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jungqui.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://jungqui.github.io/posts/requestparam_body/">
+    
+    
+    <script type="text/javascript" src="https://jungqui.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jungqui.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Requestparam_body"/>
+<meta name="twitter:description" content="RequestParam? RequestBody? PathVariable? controller 에 parameter 를 전달하는 방법은 여러가지가 있는데, 대표적으로 RequestParam, RequestBody, PathVariable 이 있다."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://jungqui.github.io/images/dedsec.png" alt="profile picture">
+        <h3 title=""><a href="/">QUEUEZ DEV LOG</a></h3>
+        <div class="description">
+          <p>배울게 너무 많아 항상 부족함을 느끼는 개발자입니다.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/JUNGQUI" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:ljk2518@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; QUEUEZ 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/posts/"  title="">Posts</a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Requestparam_body
+        </h3>
+        
+        </div>
+
+    <h2 id="requestparam-requestbody-pathvariable">RequestParam? RequestBody? PathVariable?</h2>
+<p>controller 에 parameter 를 전달하는 방법은 여러가지가 있는데, 대표적으로 RequestParam, RequestBody, PathVariable
+이 있다.</p>
+<p>이 방법들은 언어 그대로 parameter 로 그대로 보내는가(RequestParam), http 통신 중 body 에 실어서 보내는가(RequestBody),
+url 에 명시하여 전달하는가(PathVariable) 로 이루어져 있다.</p>
+<h2 id="왜-알아야-하나">왜 알아야 하나?</h2>
+<p>그냥 문득 궁금해지기도 했고 사실 GET, POST 에 맞춰서 하려면 body 와 param 을 적절하게 나눠서 써야 한다고 생각해서
+확실하게 정리하고자 작성을 결심했다.</p>
+<h2 id="구성">구성</h2>
+<p>먼저 <code>requestParam</code> 을 보면, 설명에 이미 대놓고 나와 있다.</p>
+<blockquote>
+<p>Annotation which indicates that a method parameter should be bound to a web
+request parameter.</p>
+<p>&hellip;</p>
+<p>In Spring MVC, &ldquo;request parameters&rdquo; map to query parameters, form data,
+and parts in multipart requests. This is because the Servlet API combines
+query parameters and form data into a single map called &ldquo;parameters&rdquo;, and
+that includes automatic parsing of the request body.
+In Spring WebFlux, &ldquo;request parameters&rdquo; map to query parameters only.
+To work with all 3, query, form data, and multipart data, you can use data
+binding to a command object annotated with {@link ModelAttribute}.</p>
+</blockquote>
+<p>모든 web request 에 있어 parameter 가 범위에 있고 그러한 parameter 들에 대해
+query param, form data, multipart request 등 <code>parameters</code> 로 명명하기에 해당 요청들에 대해
+<code>RequestParam</code> 이 지원한다고 되어 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">testController</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/test/request/param/get&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">requestParamGetTest</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span> String test<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>test<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/test/request/param/post&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">requestParamPostTest</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span> String test<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>test<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>	
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이 두 가지 케이스 모두 이와 같은 요청을 할 경우엔</p>
+<ul>
+<li>requestParam request</li>
+</ul>
+<p><img src="../../static/images/requestParam/requestParamGET.png" alt="requestParam_GET"></p>
+<p>결과 값으론 <code>&quot;test&quot;: &quot;test,test&quot;</code> 로 요청이 된다.</p>
+<p>이는 GET method 와 requestParam 의 속성 때문인데, 앞서 언급했듯이 RequestParam 은
+query param(URL encoding), form data, multipart 모두 요청으로써 받기 떄문에
+form-data 형식으로 <code>&quot;test&quot;: &quot;test&quot;</code> 를 전달하고, URL 내에 <code>test=test</code> 를 통해 하나의 변수에 대해
+두 개의 요청을 받았고, string 형식이기에 append 하여 하나로 합쳐서 controller 에 전달하게 되었다.</p>
+<p>이는 POST method 에서도 동일하게 발생한다.</p>
+<ul>
+<li>requestBody request</li>
+</ul>
+<blockquote>
+<p>Annotation indicating a method parameter should be bound to the body of the web request. The body of the request is passed through an HttpMessageConverter
+to resolve the method argument depending on the content type of the request. Optionally, automatic validation can be applied by annotating the argument with @Valid.
+Supported for annotated handler methods.</p>
+</blockquote>
+<p>request body 의 경우 body 내에 저장하여 전달하기에 객체 전달에 용이하며, requestBody 에 명시되지 않은 데이터는
+controller 에서 parameter 로 받아들이지 않기에 명확하게 전달이 가능하다.</p>
+<p><img src="../../static/images/requestBody/requestBodyPOST.png" alt="requestBody_POST"></p>
+<p>이러한 요청에 혹여 url encoding 을 통해 전달을 하더라도 request body 에 mapping 이 되지 않았기에
+controller 에 전달은 되지 않는다.</p>
+<h2 id="그래서">그래서?</h2>
+<p>java 에서 주관하는 객체 지향으로 생각을 한다면 모든 request 에 대해 RequestBody 로 object 를 통해 전달하고
+해당 object 에서 controller layer 에서 형변환 및 validation 을 하고 service 를 진행하게 하는게 아마 맞는 방향성일 것이다.</p>
+<p>하지만 아주 작은 small data 에 대해 param 으로 처리하거나 key 값을 받아서 service 에 전달하는 식으로 한다면 간단하게 진행이 가능하기에
+param 을 써도 무방하다고 생각된다.</p>
+<p>결국 사용하기에 따라 다른것이라 본다.
+<del>그러니까 꾸준히 공부 해서 잘 쓰자</del></p>
+<p>참고는 <a href="https://www.diffen.com/difference/GET-vs-POST-HTTP-Requests">여기</a> 에서 참고 했다.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/programming/">programming</a><a class="tag" href="/tags/java/">java</a><a class="tag" href="/tags/spring/">spring</a></span>
+
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://jungqui.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://jungqui.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>
